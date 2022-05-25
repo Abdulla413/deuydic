@@ -7,9 +7,9 @@ const getLughets= asyncHandler(async (req, res)=>{
     
     let q=req.query.q;
 
-    // console.log(q, " i am query")
 
-    const lughet=await Lughets.find({"deutsch":{$regex:`${q}`, $options:"i"}}).limit(10).sort({ deutsch: 1 }).collation({ locale: "en", caseLevel: true }) 
+    const lughet=await Lughets.find({deutsch:{$regex:`${q}`, $options:"i"}}).limit(10)
+    // .sort({ deutsch: 1 }).collation({ locale: "de", caseLevel: true }) 
     
     res.status(200).json(lughet)
 })
