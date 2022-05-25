@@ -11,7 +11,7 @@ useEffect( ()=>{
     if (searchTerm === '') {
         setSearchResults([])
       } else {
-fetch(`http://https://deuydic.herokuapp.com//api/lughet/?q=${searchTerm}`)
+fetch(`https://deuydic.herokuapp.com/api/lughet/?q=${searchTerm}`)
 .then(res=>{
     if(!res.ok){
       return setError({error:true})
