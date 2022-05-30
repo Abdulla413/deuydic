@@ -7,24 +7,24 @@ const getLughets= asyncHandler(async (req, res)=>{
     
     let q=req.query.q;
 
-    const agg=[
-            {
-                "$search":{
-                    "autocompelet":{
-                        "query":`${q}`,
-                        "path":"deutsch",
-                        "fuzzy":{
-                            "maxEdits":2
-                        }
-                    }
-                }
-            }
-        ]
+//     const agg=[
+//             {
+//                 "$search":{
+//                     "autocompelet":{
+//                         "query":`${q}`,
+//                         "path":"deutsch",
+//                         "fuzzy":{
+//                             "maxEdits":2
+//                         }
+//                     }
+//                 }
+//             }
+//         ]
 
 
-const lughet = await Lughets.aggregate(agg).toArray();
+// const lughet = await Lughets.aggregate(agg).toArray();
 
-    // const lughet=await Lughets.find({deutsch:{$regex:`${q}`, $options:"i"}}).limit(10)
+    const lughet=await Lughets.find({deutsch:{$regex:`${q}`, $options:"i"}}).limit(10)
     // .sort({ deutsch: 1 }).collation({ locale: "de", caseLevel: true }) 
     
     res.status(200).json(lughet)
