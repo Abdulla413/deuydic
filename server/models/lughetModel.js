@@ -6,7 +6,8 @@ const lughetSchema=new Schema({
     
 deutsch:{
     type:String, 
-    required: true
+    required:true,
+    unique:true
 },
 
 artikel:{

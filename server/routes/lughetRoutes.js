@@ -6,8 +6,8 @@ const {getLughets, addLughets} = require("../controllers/lughetController")
 
 
 
-router.get("/", getLughets )
-router.post("/", addLughets) 
+router.route("/").get(getLughets).post(addLughets)
+
 
 
 

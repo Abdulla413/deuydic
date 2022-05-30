@@ -20,7 +20,7 @@ const addLughets= asyncHandler(async (req, res)=>{
         throw new Error("تېكىست قوشۇڭ")
 
     }
-    const lughet = await Lughet.create({
+    const lughet = await Lughets.create({
         deutsch: req.body.deutsch,
         artikel: req.body.artikel,
         verben: req.body.verben,
