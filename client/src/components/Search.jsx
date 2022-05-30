@@ -80,6 +80,8 @@ fetch(`https://deuydic.herokuapp.com/api/lughet/?q=${searchTerm}`)
                 
                 
                 </h2>
+                <h2 className='px-3 text-md bg-gray-300'> {result.verben && <p>{result.verben}  &nbsp; </p>}                
+                </h2>
                 <p className="bg-green-300 h-7 pt-1 px-3 pb-1 font-alkatip font-bold" dir="auto">ئۇيغۇرچە</p>
                 <p className='mx-3 pb-1 mb-2 my-1 pt-1 font-alkatip' dir="auto"> {result.uyghur}</p>
             </div>))}

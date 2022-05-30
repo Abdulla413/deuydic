@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }))
 
 
 app.use("/api/lughet", require("./routes/lughetRoutes"))
-app.use("/api/addlughet", require("./routes/lughetRoutes"))
+app.use("/api/editor", require("./routes/editorRoutes"))
 
 //Serve client
 
