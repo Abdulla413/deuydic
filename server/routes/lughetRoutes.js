@@ -1,12 +1,15 @@
-const { query } = require("express");
 const  express = require("express");
 const router =express.Router()
 
-const {getLughets, addLughets} = require("../controllers/lughetController")
+const {getLughets, addLughets, updateLughets, deleteLughets} = require("../controllers/lughetController")
+
+const {protect}= require("../middleware/authMiddleware")
 
 
 
-router.route("/").get(getLughets).post(addLughets)
+router.route("/").get(getLughets).post(protect, addLughets)
+
+router.route("/:id").put(protect, updateLughets).delete(deleteLughets)
 
 
 

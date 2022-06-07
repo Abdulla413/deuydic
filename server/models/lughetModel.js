@@ -4,11 +4,11 @@ const Schema=mongoose.Schema;
 
 const lughetSchema=new Schema({
 
-    editor:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true,
-        ref:"Editor"
-    },
+    // editor:{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     required:true,
+    //     ref:"Editor"
+    // },
     
 deutsch:{
     type:String, 

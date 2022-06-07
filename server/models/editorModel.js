@@ -4,10 +4,9 @@ const Schema=mongoose.Schema;
 
 const editorSchema=new Schema({
     
-editor:{
+name:{
     type:String, 
-    required:[true, "ئىسىم قوشۇڭ"],
-    unique:true
+    required:[false, "ئىسىم قوشۇڭ"],
 },
 
 email:{
@@ -21,12 +20,9 @@ password:{
     required:[true, " مەخپى نومۇرىنى كىرگۈزۈڭ "],
 },
 
-validation:{
+rohset:{
     type:String,
-    required: true
-},
-
-},
+}},
 {
     timestamps:true
 })
