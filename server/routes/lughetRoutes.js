@@ -1,9 +1,9 @@
-const  express = require("express");
-const router =express.Router()
+const express = require("express");
+const router = express.Router()
 
-const {getLughets, addLughets, updateLughets, deleteLughets} = require("../controllers/lughetController")
+const { getLughets, addLughets, updateLughets, deleteLughets } = require("../controllers/lughetController")
 
-const {protect}= require("../middleware/authMiddleware")
+const { protect } = require("../middleware/authMiddleware")
 
 
 
@@ -15,4 +15,4 @@ router.route("/:id").put(protect, updateLughets).delete(deleteLughets)
 
 
 
-module.exports=router;
+module.exports = router;

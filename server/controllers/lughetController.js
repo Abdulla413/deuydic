@@ -49,8 +49,6 @@ const addLughets= asyncHandler(async (req, res)=>{
    res.status(200).json(lughets)
 })
 
-
-
 const updateLughets= asyncHandler(async (req, res)=>{
     console.log(req.body)
     console.log(req.headers, "i am headers")

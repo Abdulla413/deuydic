@@ -12,7 +12,8 @@ useEffect( ()=>{
     if (searchTerm === '') {
         setSearchResults([])
       } else {
-fetch(`https://deuydic.herokuapp.com/api/lughet/?q=${searchTerm}`)
+// fetch(`https://deuydic.herokuapp.com/api/lughet/?q=${searchTerm}`)
+fetch(`http://localhost:5000/api/lughet/?q=${searchTerm}`)
 .then(res=>{
     if(!res.ok){
       return setError({error:true})
@@ -56,7 +57,7 @@ fetch(`https://deuydic.herokuapp.com/api/lughet/?q=${searchTerm}`)
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
-              className='form-control bg-white h-10 px-5 pr-10 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-72'
+              className='form-control font-alkatip  bg-white h-10 px-5 pr-10 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none w-72'
               placeholder='گىرمانچە سۆز كىرگۈزۈڭ'
               dir="auto"
             />
@@ -89,11 +90,7 @@ fetch(`https://deuydic.herokuapp.com/api/lughet/?q=${searchTerm}`)
  
         </div>
       </div>
-
-      
-
-
-     
+    
      </div> 
 
   )

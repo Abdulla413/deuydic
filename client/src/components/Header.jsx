@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router-dom"
 
 export default function Header() {
@@ -11,12 +9,16 @@ export default function Header() {
                         <span className="ml-3 text-xl">DEUYDIC</span>
                     </div>
                 </Link>
-                <nav className="flex flex-wrap md:w-4/5 items-center justify-end text-base md:ml-auto">
-                    <Link to="/" className="mx-5 cursor-pointer uppercase hover:text-indigo-300">
-                        Home
+                <nav className="flex flex-wrap  font-alkatip  md:w-4/5 items-center justify-end text-base md:ml-auto">
+                <Link to="/edit" className="cursor-pointer uppercase hover:text-indigo-300" >
+                        تەھرىرلەش
                     </Link>
-                    <Link to="/about" className="cursor-pointer uppercase hover:text-indigo-300" >
-                        About
+                    <Link to="/about" className="mx-5 cursor-pointer uppercase hover:text-indigo-300" >
+                        لۇغەت ھەققىدە
+                    </Link>
+                    
+                    <Link to="/" className=" mx-5 cursor-pointer uppercase hover:text-indigo-300">
+                        باشبەت
                     </Link>
                 </nav>
             </div>
