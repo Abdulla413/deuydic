@@ -16,6 +16,7 @@ function SearchItem({ result }) {
     function hanleUtterance(e) {
         e.preventDefault();
         const text = result.deutsch
+        
         const utterance = new SpeechSynthesisUtterance(text);
         if (utterance.text !== text) {
             utterance.text = text
@@ -28,7 +29,7 @@ function SearchItem({ result }) {
         utterance.rate=1
         utterance.pitch=1
         utterance.volume=1
-        speechSynthesis.speak(utterance);
+        window.speechSynthesis.speak(utterance);
     }
 
     return (
