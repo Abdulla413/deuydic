@@ -11,7 +11,6 @@ export default function AuthHeader() {
     const { editor } = useSelector((state) => state.auth)
 
     const onLogout = () => {
-        console.log("man chikinish")
         dispatch(logout())
         dispatch(reset())
         navigate("/")

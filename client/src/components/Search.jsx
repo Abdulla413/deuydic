@@ -25,7 +25,6 @@ export default function Search() {
         })
         .then((data => {
           setSearchResults(data)
-          console.log(data)
         }))
         .catch((err) => {
           console.log(err)

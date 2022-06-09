@@ -10,7 +10,6 @@ const getLughets = asyncHandler(async (req, res) => {
 
 
     res.status(200).json(lughets)
-    console.log(lughets, " i am lughet")
 })
 
 const addLughets = asyncHandler(async (req, res) => {
@@ -31,10 +30,7 @@ const addLughets = asyncHandler(async (req, res) => {
 })
 
 const updateLughets = asyncHandler(async (req, res) => {
-    console.log(req.body)
-    console.log(req.headers, "i am headers")
-
-
+   
     const lughets = await Lughet.findById(req.params.id)
     if (!lughets) {
         res.status(400)
@@ -50,7 +46,6 @@ const updateLughets = asyncHandler(async (req, res) => {
     const updatedLughets = await Lughet.findByIdAndUpdate(req.params.id, req.body, {
         new: true
     })
-    //    console.log(req.body)
     res.status(200).json(updatedLughets)
 })
 
