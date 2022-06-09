@@ -16,9 +16,26 @@ const addLughet=async(lughetData, token)=>{
     return response.data
 }
 
+// Delete lughet
+
+
+const deleteLughet=async(lughetId, token)=>{
+    const config = {
+        headers:{
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response= await axios.delete(API_URL + lughetId, config)
+
+    return response.data
+}
+
+
 
 const lughetService = {
-    addLughet
+    addLughet,
+    deleteLughet
 }
 
 export default lughetService

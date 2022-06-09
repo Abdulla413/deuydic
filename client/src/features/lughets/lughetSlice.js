@@ -26,6 +26,23 @@ export const addLughet = createAsyncThunk("lughets/create", async (lughetData, t
 )
 
 
+// Delete Lughet
+
+export const deleteLughet = createAsyncThunk("lughets/delete", async (id, thunkAPI) => {
+    try {
+        const token = thunkAPI.getState().auth.editor.token
+        return await lughetService.deleteLughet(id, token)
+    } catch (error) {
+        const message =
+            (error.response && error.response.data && error.response.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+}
+)
+
+
 
 export const lughetSlice = createSlice({
     name: "lughet",
@@ -45,6 +62,19 @@ export const lughetSlice = createSlice({
                 state.lughets.push(action.payload)
             })
             .addCase(addLughet.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(deleteLughet.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(deleteLughet.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.lughets=state.lughets.filter((lughet)=>lughet._id !== action.payload.id)
+            })
+            .addCase(deleteLughet.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
