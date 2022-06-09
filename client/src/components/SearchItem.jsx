@@ -24,6 +24,7 @@ function SearchItem({ result }) {
         const  synth = window.speechSynthesis;
         const voices = synth.getVoices();
         utterance.voice=voices[2]
+        utterance.lang="de-DE"
         utterance.rate=1
         utterance.pitch=1
         utterance.volume=1
