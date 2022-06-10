@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 import {deleteLughet} from "../features/lughets/lughetSlice"
+import {toast} from "react-toastify"
 
 
 function SearchItem({ result }) {
@@ -8,9 +9,12 @@ function SearchItem({ result }) {
 
     const dispatch = useDispatch()
 
-    const onUpdate=()=>{
+    const onDelete =(e)=>{
+    
+    dispatch(deleteLughet(result._id), toast("بۇ سۆز ئۈچۈرۈلدى"))
 
     }
+    
 
 
     function hanleUtterance(e) {
@@ -52,7 +56,7 @@ function SearchItem({ result }) {
                     <p className='mx-3 pb-1 mb-2 my-1 pt-1 font-alkatip' dir="auto"> {result.uyghur}</p>
 
                     <div>
-                        {editor && (<><div className="flex flex-end font-alkatip r-0  md:w-4/5 items-center justify-end text-base md:ml-auto"> <button className='bg-red-700 text-white px-2 mx-2 rounded' onClick={onUpdate} >تەھرىرلەش</button>{" "}{" "}<button className='font-alkatip bg-red-700 text-white px-2 mx-2 rounded' onClick={()=>dispatch(deleteLughet(result._id))} >ئۆچۈرۈش</button>   </div></>)}
+                        {editor && (<><div className="flex flex-end font-alkatip r-0  md:w-4/5 items-center justify-end text-base md:ml-auto"> {" "}<button className='font-alkatip bg-red-700 text-white px-2 mx-2 rounded' onClick={onDelete} >ئۆچۈرۈش</button>   </div></>)}
 
                     </div>
                 </div>

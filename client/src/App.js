@@ -10,7 +10,6 @@ import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
-
 function App() {
   return (
     <>
@@ -24,6 +23,7 @@ function App() {
             <Route path="/register" element={<Register/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/editpage" element={<EditPage/>} />
+
 
 
          </Routes>

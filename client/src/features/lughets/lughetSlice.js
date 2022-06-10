@@ -26,6 +26,24 @@ export const addLughet = createAsyncThunk("lughets/create", async (lughetData, t
 )
 
 
+// Get current lughets
+
+export const getCurrentLughets=createAsyncThunk("lughets/getLughet", async(thunkAPI)=>{
+try {
+    return await lughetService.getCurrentLughet()
+} catch (error) {
+    const message =
+            (error.response && error.response.data && error.response.message) ||
+            error.message ||
+            error.toString()
+        return thunkAPI.rejectWithValue(message)
+    
+}
+
+})
+
+
+
 // Delete Lughet
 
 export const deleteLughet = createAsyncThunk("lughets/delete", async (id, thunkAPI) => {
@@ -62,6 +80,19 @@ export const lughetSlice = createSlice({
                 state.lughets.push(action.payload)
             })
             .addCase(addLughet.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(getCurrentLughets.pending, (state) => {
+                state.isLoading = true
+            })
+            .addCase(getCurrentLughets.fulfilled, (state, action) => {
+                state.isLoading = false
+                state.isSuccess = true
+                state.lughets=action.payload
+            })
+            .addCase(getCurrentLughets.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload

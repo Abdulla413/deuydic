@@ -2,6 +2,8 @@ const asyncHandler = require("express-async-handler")
 
 const Lughet = require("../models/lughetModel")
 
+// Get lughet by query string
+
 const getLughets = asyncHandler(async (req, res) => {
 
     let q = req.query.q;
@@ -11,6 +13,8 @@ const getLughets = asyncHandler(async (req, res) => {
 
     res.status(200).json(lughets)
 })
+
+// Add lughet to the Mongodg
 
 const addLughets = asyncHandler(async (req, res) => {
     if (!req.body.deutsch) {
@@ -28,6 +32,21 @@ const addLughets = asyncHandler(async (req, res) => {
     })
     res.status(200).json(lughets)
 })
+
+// Get single lughet for update
+
+const getcurrentlughets= asyncHandler(async(req, res)=>{
+    const lughets= await Lughet.findById(req.params.id)
+    if(!lughets){
+        res.status(400)
+        throw new Error("سۆز تېپىلمىدى")
+    }
+     res.status(200).json(lughets)
+})
+
+
+
+// Update lughet
 
 const updateLughets = asyncHandler(async (req, res) => {
    
@@ -66,5 +85,6 @@ module.exports = {
     getLughets,
     addLughets,
     updateLughets,
-    deleteLughets
+    deleteLughets,
+    getcurrentlughets
 }

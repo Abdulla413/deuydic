@@ -16,6 +16,18 @@ const addLughet=async(lughetData, token)=>{
     return response.data
 }
 
+
+// GetCurrentLughet
+
+const getCurrentLughet=async()=>{
+    
+
+    const response= await axios.get(API_URL)
+
+    return response.data
+}
+
+
 // Delete lughet
 
 
@@ -35,7 +47,8 @@ const deleteLughet=async(lughetId, token)=>{
 
 const lughetService = {
     addLughet,
-    deleteLughet
+    deleteLughet,
+    getCurrentLughet
 }
 
 export default lughetService
