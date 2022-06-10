@@ -10,8 +10,11 @@ function SearchItem({ result }) {
     const dispatch = useDispatch()
 
     const onDelete =(e)=>{
-    
-    dispatch(deleteLughet(result._id), toast("بۇ سۆز ئۈچۈرۈلدى"))
+
+
+        if(window.confirm("سۆزنى راستلا ئۆچۈرەمسىز؟")){
+            dispatch(deleteLughet(result._id), toast("بۇ سۆز ئۈچۈرۈلدى"))
+        }
 
     }
     

@@ -35,7 +35,7 @@ useEffect(()=>{
 
   if(isSuccess){
     navigate("/editpage")
-    toast("سۆز غەلبىلىك قوشۇلدى")
+    toast("سۆز قوشۇلدى")
   }
 
   dispatch(reset())
