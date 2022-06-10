@@ -12,7 +12,7 @@ function SearchItem({ result }) {
     const onDelete =(e)=>{
 
 
-        if(window.confirm("سۆزنى راستلا ئۆچۈرەمسىز؟")){
+        if(window.confirm("بۇ سۆزنى راستلا ئۆچۈرەمسىز؟")){
             dispatch(deleteLughet(result._id), toast("بۇ سۆز ئۈچۈرۈلدى"))
         }
 
