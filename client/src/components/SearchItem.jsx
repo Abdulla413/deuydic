@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
-import {deleteLughet} from "../features/lughets/lughetSlice"
-import {toast} from "react-toastify"
+import { deleteLughet } from "../features/lughets/lughetSlice"
+import { toast } from "react-toastify"
 
 
 function SearchItem({ result }) {
@@ -9,35 +9,57 @@ function SearchItem({ result }) {
 
     const dispatch = useDispatch()
 
-    const onDelete =(e)=>{
+    const onDelete = (e) => {
 
 
-        if(window.confirm("بۇ سۆزنى راستلا ئۆچۈرەمسىز؟")){
+        if (window.confirm("بۇ سۆزنى راستلا ئۆچۈرەمسىز؟")) {
             dispatch(deleteLughet(result._id), toast("بۇ سۆز ئۈچۈرۈلدى"))
         }
 
     }
-    
+
 
 
     function hanleUtterance(e) {
         e.preventDefault();
         const text = result.deutsch
-        
+
         const utterance = new SpeechSynthesisUtterance(text);
         if (utterance.text !== text) {
             utterance.text = text
-          }
+        }
 
-        const  synth = window.speechSynthesis;
+        const synth = window.speechSynthesis;
         const voices = synth.getVoices();
-        utterance.voice=voices[2]
-        utterance.lang="de-DE"
-        utterance.rate=1
-        utterance.pitch=1
-        utterance.volume=1
+        utterance.voice = voices[2]
+        utterance.lang = "de-DE"
+        utterance.rate = 1
+        utterance.pitch = 1
+        utterance.volume = 1
         window.speechSynthesis.speak(utterance);
     }
+
+const copyHandle = async ()=>{
+  
+    
+    const text=[
+        result.deutsch,
+       result.uyghur,
+        result.verben,
+        result.satze,
+        result.uysatze,
+        "www.deuydic.com"    
+    ]
+    
+
+        await navigator.clipboard.writeText(text);
+        alert('مەزمۇنلار كۆچۈرۈلدى');
+      }
+
+
+
+
+
 
     return (
         <div>
@@ -50,13 +72,16 @@ function SearchItem({ result }) {
                         </svg>
                     </p>
 
-                    <h2 className='font-lora flex mx-3 my-1 text-md'> {result.artikel && <p>{result.artikel}  &nbsp; </p>} {result.deutsch}
-
-                    </h2>
+                    <h2 className='font-lora flex mx-3 my-1 text-md'> {result.artikel && <p>{result.artikel}  &nbsp; </p>} {result.deutsch}</h2>
                     <h2 className='px-3 text-md bg-gray-300'> {result.verben && <p>{result.verben}  &nbsp; </p>}
                     </h2>
-                    <p className="bg-green-300 h-7 pt-1 px-3 pb-1 font-alkatip font-bold" dir="auto">ئۇيغۇرچە</p>
-                    <p className='mx-3 pb-1 mb-2 my-1 pt-1 font-alkatip' dir="auto"> {result.uyghur}</p>
+                    <p className="bg-green-300 h-7 pt-1 px-3 pb-1 font-alkatip font-bold" dir="auto">ئۇيغۇرچە
+                        <svg xmlns="http://www.w3.org/2000/svg"  onClick={copyHandle} className="inline-block mr-2 h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+
+                    </p>
+                    <p className='mx-3 pb-1 mb-2 my-1 pt-1 font-alkatip' id="uyghur" dir="auto"> {result.uyghur}</p>
 
                     <div>
                         {editor && (<><div className="flex flex-end font-alkatip r-0  md:w-4/5 items-center justify-end text-base md:ml-auto"> {" "}<button className='font-alkatip bg-red-700 text-white px-2 mx-2 rounded' onClick={onDelete} >ئۆچۈرۈش</button>   </div></>)}

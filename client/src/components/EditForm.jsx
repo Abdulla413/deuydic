@@ -12,6 +12,7 @@ function EditForm() {
 
   const [formData, setFormData] = useState({
     deutsch: "",
+    plural:"",
     artikel: "",
     verben: "",
     uyghur: "",
@@ -59,6 +60,7 @@ useEffect(()=>{
     dispatch(addLughet(lughetData))
     setFormData({ 
     deutsch: "",
+    plural:"",
     artikel: "",
     verben: "",
     uyghur: "",
@@ -94,7 +96,6 @@ useEffect(()=>{
                 value={uyghur}
                 onChange={onChange}
                 placeholder="ئۇيغۇرچە تەرجىمىسى" />
-
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"

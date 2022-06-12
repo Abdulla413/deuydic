@@ -23,6 +23,7 @@ const addLughets = asyncHandler(async (req, res) => {
     }
     const lughets = await Lughet.create({
         deutsch: req.body.deutsch,
+        plural:req.body.plural,
         artikel: req.body.artikel,
         verben: req.body.verben,
         uyghur: req.body.uyghur,
