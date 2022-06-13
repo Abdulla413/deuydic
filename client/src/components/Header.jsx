@@ -13,7 +13,7 @@ export default function Header() {
             <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ">
                 <Link to="/">
                     <div className="flex md:w-1/5 title-font font-medium items-center md:justify-start mb-4 md:mb-0" >
-                        <span className="ml-3 text-xl">DEUYDIC</span>
+                        <span className="ml-3 text-xl">TESNIM.DE</span>
                     </div>
                 </Link>
                 <nav className="flex flex-wrap  font-alkatip  md:w-4/5 items-center justify-end text-base md:ml-auto">
