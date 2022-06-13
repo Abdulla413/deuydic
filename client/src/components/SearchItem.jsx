@@ -46,7 +46,7 @@ function SearchItem({ result }) {
             result.verben,
             result.satze,
             result.uysatze,
-            "www.deuydic.com"
+            "www.tesnim.de"
         ]
        
         if ('clipboard' in navigator) {
