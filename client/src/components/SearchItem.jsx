@@ -55,7 +55,6 @@ function SearchItem({ result }) {
 
         } else {
             return Document.execCommand('copy', true, text);
-
         }
 
     }
