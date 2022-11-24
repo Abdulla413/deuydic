@@ -3,11 +3,9 @@ const express = require("express")
 const app = express()
 
 const dotenv = require("dotenv").config()
-const connectDB = require("./config/db.js")
+const connectDB = require("./server/config/db.js")
 
-const colors = require("colors")
-
-const { errorHandler } = require("./middleware/errorMiddleware")
+const { errorHandler } = require("./server/middleware/errorMiddleware")
 
 
 connectDB()
@@ -17,8 +15,8 @@ connectDB()
 const port = process.env.PORT || 5000
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use("/api/lughet", require("./routes/lughetRoutes"))
-app.use("/api/editor", require("./routes/editorRoutes"))
+app.use("/api/lughet", require("./server/routes/lughetRoutes"))
+app.use("/api/editor", require("./server/routes/editorRoutes"))
 
 // Serve static assets in production
 
